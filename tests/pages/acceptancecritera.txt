@@ -1,0 +1,48 @@
+AC 1 — Login Page
+User Story: As a registered user, I want to log into OrangeHRM so that I can access my dashboard.
+Acceptance Criteria:
+
+Given valid username and password, when the user clicks "Login," then they are redirected to the Dashboard page
+Given an incorrect username or password, when the user clicks "Login," then an error message "Invalid credentials" is displayed and the user remains on the login page
+Given empty username or password fields, when the user clicks "Login," then a "Required" validation message is shown under each empty field
+The password field must mask input characters at all times
+
+
+AC 2 — Admin Page (User Management)
+User Story: As an Admin, I want to add a new system user so that they can access OrangeHRM with appropriate permissions.
+Acceptance Criteria:
+
+Given the Admin navigates to Admin → User Management → Add, when all mandatory fields (User Role, Employee Name, Status, Username, Password) are filled correctly, then the new user is created and appears in the User Management list
+Given a username that already exists, when the Admin attempts to save, then the system displays "Username already exists" and does not create a duplicate
+The Password and Confirm Password fields must match exactly, or the system blocks submission with a validation error
+Only users with Admin role privileges can access the "Add User" screen
+
+
+AC 3 — PIM Page (Add Employee)
+User Story: As an Admin/HR user, I want to add a new employee record so that their information is stored in the system.
+Acceptance Criteria:
+
+Given First Name and Last Name are entered, when "Save" is clicked, then a new Employee ID is auto-generated and the employee record is created
+Given an employee photo is uploaded, when the file exceeds the allowed size/format, then the system rejects the upload with an appropriate error message
+The "Employee Id" field, if left blank, auto-populates with the next sequential ID
+Given the same employee already exists, when added again, then the system still allows creation but flags it with a unique internal ID (no hard duplicate-name validation)
+
+
+AC 4 — Leave Page (Apply Leave)
+User Story: As an employee, I want to apply for leave so that my manager can review and approve my time off.
+Acceptance Criteria:
+
+Given a valid leave type and date range within available balance, when "Apply" is submitted, then the leave request status shows as "Pending Approval"
+Given the selected leave dates fall on a weekend or company holiday, when applied, then the system excludes those days from the leave day count automatically
+Given the requested leave duration exceeds the employee's available leave balance, when submitted, then the system displays an insufficient-balance error and blocks submission
+Given overlapping leave dates with an existing pending/approved request, when submitted, then the system prevents duplicate leave entries for the same date range
+
+
+AC 5 — My Info / ESS Page (Personal Details)
+User Story: As an employee, I want to update my personal contact details so that HR has accurate, current information.
+Acceptance Criteria:
+
+Given the employee updates their mobile number and email in the Personal Details tab, when "Save" is clicked, then the updated values persist after page refresh
+Given an invalid email format (e.g., missing "@"), when saved, then the system shows a validation error and does not save the change
+Employees can only edit their own personal details, not another employee's record, unless granted Admin/Supervisor access
+Mandatory fields (e.g., Employee Name) cannot be cleared/left blank on save — the system blocks the update and retains the previous value

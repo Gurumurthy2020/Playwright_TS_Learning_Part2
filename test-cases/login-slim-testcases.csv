@@ -1,0 +1,4 @@
+TC ID,Scenario,Steps,Expected Result,Priority,Type
+TC-001,Valid login redirects to Dashboard,"1. Navigate to OrangeHRM login page; 2. Enter username 'Admin'; 3. Enter password 'admin123'; 4. Click 'Login' button",User is redirected to Dashboard page,HIGH,POSITIVE
+TC-002,Invalid credentials display error,"1. Navigate to OrangeHRM login page; 2. Enter username 'InvalidUser'; 3. Enter password 'wrongpass'; 4. Click 'Login' button","Error message 'Invalid credentials' is displayed and user remains on login page",HIGH,NEGATIVE
+TC-004,Password field masks input characters,"1. Navigate to OrangeHRM login page; 2. Click on password field; 3. Enter any password (e.g., 'test123')","All entered characters are displayed as masked dots; input remains hidden",HIGH,POSITIVE
