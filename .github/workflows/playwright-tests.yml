@@ -25,8 +25,16 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
       
-      - name: Run Playwright tests
-        run: npm test
+      - name: Create .env file
+        run: |
+          cat > .env << EOF
+          ORANGEHRM_USERNAME=${{ secrets.ORANGEHRM_USERNAME }}
+          ORANGEHRM_PASSWORD=${{ secrets.ORANGEHRM_PASSWORD }}
+          ORANGEHRM_BASE_URL=${{ secrets.ORANGEHRM_BASE_URL }}
+          EOF
+      
+      - name: Run Playwright tests (headless)
+        run: playwright test --project=chromium
       
       - name: Upload test report
         if: always()
